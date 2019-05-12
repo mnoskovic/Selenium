@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dnsName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+      {
+        "name": "[parameters('dnsName')]",
+        "type": "Microsoft.ContainerInstance/containerGroups",
+        "location": "[resourceGroup().location]",
+        "apiVersion": "2018-06-01",
+        "properties": {
+          "containers": [
+            {
+              "name": "standalone-chrome",
+              "properties": {
+                "image": "selenium/standalone-chrome",
+                "ports": [
+                  {
+                    "port": "4444",
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1.0",
+                    "memoryInGb": "1.5"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "devshm",
+                    "mountPath": "/dev/shm"
+                  }
+                ]
+              }
+            }
+          ],
+          "ipAddress": {
+            "ports": [
+              {
+                "port": "4444",
+                "protocol": "TCP"
+              }
+            ],
+            "type": "Public",
+            "dnsNameLabel": "[parameters('dnsName')]"
+          },
+          "osType": "Linux",
+          "volumes": [
+            {
+              "name": "devshm",
+              "emptyDir": {}
+            }
+          ]
+        }
+      }
+    ]
+}
