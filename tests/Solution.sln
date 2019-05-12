@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57EA10DD-D06A-47A8-95B1-ACBEFB78FC9C}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.csharp", "Selenium.csharp\Selenium.csharp.csproj", "{E197EA94-8D80-4C71-91A6-E7F726E3E7A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.javascript", "Selenium.javascript\Selenium.javascript.csproj", "{6B12A62A-6B50-4021-9163-22ECDFCD19CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E197EA94-8D80-4C71-91A6-E7F726E3E7A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E197EA94-8D80-4C71-91A6-E7F726E3E7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E197EA94-8D80-4C71-91A6-E7F726E3E7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E197EA94-8D80-4C71-91A6-E7F726E3E7A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C6FB40C-5D3B-4DE7-A746-1DE4E6E412AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C6FB40C-5D3B-4DE7-A746-1DE4E6E412AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C6FB40C-5D3B-4DE7-A746-1DE4E6E412AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C6FB40C-5D3B-4DE7-A746-1DE4E6E412AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6711946-64F6-41B4-9299-49AC29D2AB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6711946-64F6-41B4-9299-49AC29D2AB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6711946-64F6-41B4-9299-49AC29D2AB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6711946-64F6-41B4-9299-49AC29D2AB38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CDFDBF-75D7-4AC1-AF23-E520AD3EAFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CDFDBF-75D7-4AC1-AF23-E520AD3EAFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CDFDBF-75D7-4AC1-AF23-E520AD3EAFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CDFDBF-75D7-4AC1-AF23-E520AD3EAFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B12A62A-6B50-4021-9163-22ECDFCD19CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B12A62A-6B50-4021-9163-22ECDFCD19CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B12A62A-6B50-4021-9163-22ECDFCD19CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B12A62A-6B50-4021-9163-22ECDFCD19CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA6A912-0DA7-4361-BD29-0A4566102C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA6A912-0DA7-4361-BD29-0A4566102C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA6A912-0DA7-4361-BD29-0A4566102C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA6A912-0DA7-4361-BD29-0A4566102C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CB4E8C-FEEB-42CC-97ED-A74E2840E287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CB4E8C-FEEB-42CC-97ED-A74E2840E287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CB4E8C-FEEB-42CC-97ED-A74E2840E287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CB4E8C-FEEB-42CC-97ED-A74E2840E287}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF1CECB5-7BC0-402F-8EAB-5EDA769C118F}
+	EndGlobalSection
+EndGlobal
