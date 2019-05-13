@@ -43,6 +43,10 @@
                 {
                   "name": "HUB_HOST",
                   "value": "[parameters('hubHost')]"
+                },
+                {
+                  "name": "REMOTE_HOST",
+                  "value": "[concat(parameters('name'), '.', resourceGroup().location, '.azurecontainer.io')]"
                 }
               ]
             }
