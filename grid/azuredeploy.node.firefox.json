@@ -5,9 +5,6 @@
     "name": {
       "type": "string"
     },
-    "containerName": {
-      "type": "string"
-    },
     "hubHost": {
       "type": "string"
     }
@@ -21,7 +18,7 @@
       "properties": {
         "containers": [
           {
-            "name": "[concat('selenium-node-firefox-', parameters('containerName'))]",
+            "name": "[concat('selenium-node-firefox')]",
             "properties": {
               "image": "selenium/node-firefox",
               "ports": [

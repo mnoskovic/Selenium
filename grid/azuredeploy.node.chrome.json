@@ -5,11 +5,7 @@
     "name": {
       "type": "string"
     },
-    "containerName": {
-      "type": "string"
-    },
-
-    "hubName": {
+    "hubHost": {
       "type": "string"
     }
   },
@@ -22,7 +18,7 @@
       "properties": {
         "containers": [
           {
-            "name": "[concat('selenium-node-chrome-', parameters('containerName'))]",
+            "name": "[concat('selenium-node-chrome')]",
             "properties": {
               "image": "selenium/node-chrome",
               "ports": [
@@ -46,7 +42,7 @@
               "environmentVariables": [
                 {
                   "name": "HUB_HOST",
-                  "value": "[parameters('hubName')]"
+                  "value": "[parameters('hubHost')]"
                 }
               ]
             }
