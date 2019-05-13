@@ -23,7 +23,7 @@
               "image": "selenium/node-chrome",
               "ports": [
                 {
-                  "port": "4444",
+                  "port": "5555",
                   "protocol": "TCP"
                 }
               ],
@@ -51,7 +51,7 @@
         "ipAddress": {
           "ports": [
             {
-              "port": "4444",
+              "port": "5555",
               "protocol": "TCP"
             }
           ],
