@@ -20,7 +20,7 @@
               "image": "selenium/hub",
               "ports": [
                 {
-                  "port": "s",
+                  "port": "4444",
                   "protocol": "TCP"
                 }
               ],
