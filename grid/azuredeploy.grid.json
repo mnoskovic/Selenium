@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "type": "string"
+    },
+    "nodeCount": {
+      "type": "int",
+      "defaultValue": 1
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('name')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-06-01",
+      "properties": {
+        "containers": [
+          {
+            "name": "selenium-hub",
+            "properties": {
+              "image": "selenium/hub",
+              "ports": [
+                {
+                  "port": "4444",
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "1.0",
+                  "memoryInGb": "1.5"
+                }
+              },
+              "volumeMounts": [
+                {
+                  "name": "devshm",
+                  "mountPath": "/dev/shm"
+                }
+              ]
+            }
+          },
+          {
+            "name": "[concat('selenium-node-chrome-', copyindex())]",
+            "copy": {
+              "name": "node",
+              "count": "[parameters('nodeCount')]"
+            },
+            "properties": {
+              "image": "selenium/node-chrome",
+              "ports": [
+                {
+                  "port": "4455",
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "1.0",
+                  "memoryInGb": "1.5"
+                }
+              },
+              "volumeMounts": [
+                {
+                  "name": "devshm",
+                  "mountPath": "/dev/shm"
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "HUB_HOST",
+                  "value": "[concat(parameters('name'), '.', resourceGroup().location, '.azurecontainer.io')]"
+                }
+              ]
+            }
+          }
+        ],
+        "ipAddress": {
+          "ports": [
+            {
+              "port": "4444",
+              "protocol": "TCP"
+            }
+          ],
+          "type": "Public"
+        },
+        "osType": "Linux",
+        "volumes": [
+          {
+            "name": "devshm",
+            "emptyDir": {}
+          }
+        ]
+      }
+    }
+  ]
+}
