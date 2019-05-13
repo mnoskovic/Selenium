@@ -2,13 +2,13 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "dnsName": {
+    "name": {
       "type": "string"
     }
   },
   "resources": [
     {
-      "name": "[parameters('dnsName')]",
+      "name": "[parameters('name')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
       "location": "[resourceGroup().location]",
       "apiVersion": "2018-06-01",
@@ -47,7 +47,7 @@
             }
           ],
           "type": "Public",
-          "dnsNameLabel": "[parameters('dnsName')]"
+          "dnsNameLabel": "[parameters('name')]"
         },
         "osType": "Linux",
         "volumes": [

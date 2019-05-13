@@ -2,23 +2,26 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "dnsName": {
+    "name": {
       "type": "string"
     },
-    "hubDnsName": {
+    "containerName": {
+      "type": "string"
+    },
+    "hubHost": {
       "type": "string"
     }
   },
   "resources": [
     {
-      "name": "[parameters('dnsName')]",
+      "name": "[parameters('name')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
       "location": "[resourceGroup().location]",
       "apiVersion": "2018-06-01",
       "properties": {
         "containers": [
           {
-            "name": "[concat('selenium-node-firefox-', parameters('dnsName'))]",
+            "name": "[concat('selenium-node-firefox-', parameters('containerName'))]",
             "properties": {
               "image": "selenium/node-firefox",
               "ports": [
@@ -42,7 +45,7 @@
               "environmentVariables": [
                 {
                   "name": "HUB_HOST",
-                  "value": "[parameters('hubDnsName')]"
+                  "value": "[parameters('hubHost')]"
                 }
               ]
             }
@@ -55,8 +58,7 @@
               "protocol": "TCP"
             }
           ],
-          "type": "Public",
-          "dnsNameLabel": "[parameters('dnsName')]"
+          "type": "Public"
         },
         "osType": "Linux",
         "volumes": [
