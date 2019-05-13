@@ -43,11 +43,12 @@
             }
           },
           {
-            "name": "[concat('selenium-node-chrome-', copyindex())]",
-            "copy": {
-              "name": "node",
-              "count": "[parameters('nodeCount')]"
-            },
+            //"name": "[concat('selenium-node-chrome-', copyindex())]",
+            //"copy": {
+            //  "name": "node",
+            //  "count": "[parameters('nodeCount')]"
+            //},
+            "name": "[concat('selenium-node-chrome')]",
             "properties": {
               "image": "selenium/node-chrome",
               "ports": [
