@@ -37,10 +37,10 @@
                 }
               ],
               "environmentVariables": [
-                {
-                  "name": "REMOTE_HOST",
-                  "value": "[concat(parameters('name'), '.', resourceGroup().location, '.azurecontainer.io')]"
-                }
+                //{
+                //  "name": "REMOTE_HOST",
+                //  "value": "[concat(parameters('name'), '.', resourceGroup().location, '.azurecontainer.io')]"
+                //}
               ]
             }
           }
