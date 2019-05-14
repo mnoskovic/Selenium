@@ -4,6 +4,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using System;
+using System.Configuration;
 
 namespace Selenium.csharp
 {
@@ -40,7 +41,7 @@ namespace Selenium.csharp
         private static IWebDriver CreateRemoteDriver()
         {
             var options = CreateChromeOptions();
-            return new RemoteWebDriver(new Uri("http://mnoselv2.westeurope.azurecontainer.io:4444/wd/hub"), options);
+            return new RemoteWebDriver(new Uri(ConfigurationManager.AppSettings["selenium"]), options);
         }
 
 
