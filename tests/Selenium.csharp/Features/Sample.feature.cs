@@ -76,40 +76,43 @@ namespace Selenium.csharp.Features
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Search for accenture")]
+        [Xunit.FactAttribute(DisplayName="Show V1 products for regular user")]
         [Xunit.TraitAttribute("FeatureTitle", "Sample")]
-        [Xunit.TraitAttribute("Description", "Search for accenture")]
-        public virtual void SearchForAccenture()
+        [Xunit.TraitAttribute("Description", "Show V1 products for regular user")]
+        public virtual void ShowV1ProductsForRegularUser()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for accenture", null, ((string[])(null)));
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Show V1 products for regular user", null, ((string[])(null)));
+#line 17
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
+#line 18
     testRunner.When("I navigate to site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 5
- testRunner.And("I search for \"Accenture\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 6
- testRunner.Then("I should see on title \"Accenture\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 19
+ testRunner.And("I navigate to Oil products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+ testRunner.Then("I should see \"Filter Set V1\" product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Search for avanade")]
+        [Xunit.FactAttribute(DisplayName="Show V2 products for admin user")]
         [Xunit.TraitAttribute("FeatureTitle", "Sample")]
-        [Xunit.TraitAttribute("Description", "Search for avanade")]
-        public virtual void SearchForAvanade()
+        [Xunit.TraitAttribute("Description", "Show V2 products for admin user")]
+        public virtual void ShowV2ProductsForAdminUser()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for avanade", null, ((string[])(null)));
-#line 9
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Show V2 products for admin user", null, ((string[])(null)));
+#line 24
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 10
+#line 25
     testRunner.When("I navigate to site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.And("I search for \"Avanade\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.Then("I should see on title \"Avanade\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 26
+ testRunner.And("I login as a user \"Administrator@test.com\" with password \"YouShouldChangeThisPass" +
+                    "word1!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.And("I navigate to Oil products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.Then("I should see \"Filter Set V2\" product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -20,6 +20,19 @@ namespace Selenium.csharp.StepDefinitions
             Page.NavigateToPage();
         }
 
+        [When(@"I navigate to Oil products")]
+        public void NavigateToOilProducts()
+        {
+            Page.NavigateToOilProducts();
+        }
+
+
+        [When(@"I login as a user ""(.*)"" with password ""(.*)""")]
+        public void Login(string username, string password)
+        {
+            Page.Login(username, password);
+        }
+
         [When(@"I search for ""(.*)""")]
         public void WhenISearchFor(string text)
         {
@@ -30,6 +43,13 @@ namespace Selenium.csharp.StepDefinitions
         public void ThenIShouldSeeOnTitle(string title)
         {
             Assert.True(Page.HasTitle(title));
+        }
+
+
+        [Then(@"I should see ""(.*)"" product")]
+        public void ThenIShouldSeeProduct(string product)
+        {
+            Assert.True(Page.HasProduct(product));
         }
     }
 }
