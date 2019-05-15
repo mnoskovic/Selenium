@@ -1,4 +1,5 @@
 ﻿exports.config = {
-    server: 'mnosel.westeurope.azurecontainer.io:4444' //remote machine
+    server: '127.0.0.1:4444'
+    //server: 'mnosel.westeurope.azurecontainer.io:4444' //remote machine
     //local (see readme.md)   server: '127.0.0.1:4444'
 }

@@ -1,8 +1,0 @@
-{
-  "Values": {
-    "PROVIDER_USERNAME": "PUT THE USERNAME HERE",
-    "PROVIDER_ACCESSKEY": "PUT THE API KEY HERE",
-    "PROVIDER_URL": "https://ondemand.saucelabs.com:443/wd/hub"
-
-  }
-}

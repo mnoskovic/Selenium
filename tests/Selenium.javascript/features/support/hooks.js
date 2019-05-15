@@ -19,15 +19,16 @@ var createSession = function (config, caps) {
 };
 
 var myHooks = function () {
-    var local = null;
-
+   
     this.Before(function (scenario, callback) {
 
         var world = this;
-
-
+        
         var capability = {
-            browserName: 'chrome'
+            browserName: 'chrome',
+             chromeOptions: {
+                 args: ['--start-maximized', '--disable-notifications'] 
+            }
         };
 
         var featureName = path.basename(scenario.getUri());

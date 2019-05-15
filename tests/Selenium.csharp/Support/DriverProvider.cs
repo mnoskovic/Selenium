@@ -10,9 +10,7 @@ namespace Selenium.csharp
 
         public void Initialize()
         {
-            var driverName = Environment.GetEnvironmentVariable("driver");
-
-            var driver = DriverFactory.Create(driverName);
+            var driver = DriverFactory.Create();
             driver.Manage().Timeouts().ImplicitWait = MaxTimeout;
             CurrentDriver = driver;
         }
