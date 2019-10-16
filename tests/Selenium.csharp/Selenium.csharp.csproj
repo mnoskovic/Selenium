@@ -99,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="App.Debug.config" />
+    <None Include="App.Release.config" />
+    <None Include="apply-transform.targets" />
     <None Include="Features\Sample.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Sample.feature.cs</LastGenOutput>
@@ -130,9 +133,16 @@
   <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.23.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.23.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.14.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.14.0\build\Selenium.WebDriver.IEDriver.targets')" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PreBuildEvent>
+      pushd  "$(SolutionDir)Selenium"
+      run.cmd
+      popd
+    </PreBuildEvent>
+  </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>pushd  "$(SolutionDir)Selenium"
-run.cmd
-popd</PreBuildEvent>
+    <PostBuildEvent>
+      "$(MSBuildBinPath)\msbuild.exe" "$(ProjectDir)\apply-transform.targets" /p:TargetDir=$(TargetDir) /p:TargetName=$(TargetName) /p:SolutionDir=$(SolutionDir) /p:ProjectDir=$(ProjectDir) /p:Configuration=$(Configuration)
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

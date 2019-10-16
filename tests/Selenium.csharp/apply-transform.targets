@@ -1,0 +1,31 @@
+<Project ToolsVersion="14.0" DefaultTargets="ApplyTransform" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ 
+ <UsingTask TaskName="XmlTransform" AssemblyFile="$(ProjectDir)\..\packages\XmlTransform.Tasks.1.0.27\tools\XmlTransform.Tasks.dll" />
+
+  <PropertyGroup>
+    <Name Condition="$(Name) == ''">App</Name>
+    <Ext Condition="$(Ext) == ''">config</Ext>
+    <TargetName Condition="$(TargetName) == ''">$(Name)</TargetName>
+    <TargetExt Condition="$(TargetExt) == ''">dll</TargetExt>
+
+  </PropertyGroup>
+  
+ <Target Name="ApplyTransform">
+    <ItemGroup>
+      <Transform Include="$(ProjectDir)\$(Name).$(Configuration).$(Ext)" />
+      <ConfigsToTransform Include="$(ProjectDir)\$(Name).$(Ext)" Condition="Exists(@(Transform))">
+        <TransformPath>%(Transform.Identity)</TransformPath>
+        <TargetFileName>$(TargetName).$(TargetExt)</TargetFileName>
+      </ConfigsToTransform>
+    </ItemGroup>
+    <Message Text="@(ConfigsToTransform)" Importance="high"></Message>
+    <Message Text="@(Transform)" Importance="high"></Message>
+	  <Message Text="$(TargetDir)\%(ConfigsToTransform.TargetName)%(ConfigsToTransform.Extension)" Importance="high"></Message>
+    
+	  <XmlTransform Source="%(ConfigsToTransform.Identity)"
+                  Transform="%(ConfigsToTransform.TransformPath)"
+                  Destination="$(TargetDir)\%(ConfigsToTransform.TargetFileName)%(ConfigsToTransform.Extension)"
+                  Condition="Exists(@(Transform))"/>
+  </Target>
+  
+</Project>
