@@ -49,10 +49,8 @@
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cucumber-runner.js" />
     <Content Include="features\step-definitions\endpoint.config.js" />
     <Content Include="features\step-definitions\test-steps.js" />
-    <Content Include="features\support\env.js" />
     <Content Include="features\support\hooks.js" />
     <Content Include="setup\config\selenium.config.js" />
   </ItemGroup>
