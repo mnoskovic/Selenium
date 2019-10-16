@@ -1,3 +1,3 @@
 ﻿exports.endpointConfig = {
-    url: 'http://devops.azurewebsites.net'
+    url: 'http://mnodevopsdev.azurewebsites.net'
 }

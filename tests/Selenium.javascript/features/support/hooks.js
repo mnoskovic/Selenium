@@ -1,49 +1,35 @@
 ﻿'use strict';
 
-var path = require('path');
-
+var { After, AfterAll } = require('cucumber');
 var webdriver = require('selenium-webdriver');
+const { setWorldConstructor, setDefaultTimeout  } = require("cucumber");
 
-var config_file = '../../setup/config/' + (process.env.CONFIG_FILE || 'selenium') + '.config.js';
-var config = require(config_file).config;
+var capabilities = {
+    browserName: 'chrome',
+    chromeOptions: {
+        args: ['--start-maximized', '--disable-notifications']
+    }
+};
 
-var createSession = function (config, caps) {
+function CustomWorld() {
+    var config_file = '../../setup/config/' + (process.env.CONFIG_FILE || 'selenium') + '.config.js';
+    var config = require(config_file).config;
 
-    var driver = new webdriver
+    this.driver = new webdriver
         .Builder()
         .usingServer('http://' + config.server + '/wd/hub')
-        .withCapabilities(caps)
+        .withCapabilities(capabilities)
         .build();
+}
 
-    return driver;
-};
+setWorldConstructor(CustomWorld);
+setDefaultTimeout(60 * 1000);
 
-var myHooks = function () {
-   
-    this.Before(function (scenario, callback) {
+After(function () {
+    return this.driver.quit();
+});
 
-        var world = this;
-        
-        var capability = {
-            browserName: 'chrome',
-             chromeOptions: {
-                 args: ['--start-maximized', '--disable-notifications'] 
-            }
-        };
 
-        var featureName = path.basename(scenario.getUri());
+AfterAll(function () {
 
-        capability['name'] = featureName + ' -> ' + scenario.getName();
-
-        world.driver = createSession(config, capability);
-        callback();
-    });
-
-    this.After(function (scenario, callback) {
-        this.driver.quit().then(function () {
-            callback();
-        });
-    });
-};
-
-module.exports = myHooks;
+});

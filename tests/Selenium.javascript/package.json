@@ -1,15 +1,13 @@
 {
   "version": "1.0.0",
-  "name": "smoke-tests",
+  "name": "functional-tests",
   "private": true,
   "devDependencies": {
-    "cucumber": "0.10.2",
-    "gulp": "3.9.1",
+    "chai": "^4.2.0",
+    "cucumber": "6.0.2",
     "selenium-webdriver": "3.4.0"
   },
-  "dependencies": {},
   "scripts": {
-    "gulp": "gulp",
-    "test": "node ./cucumber-runner.js"
+    "test": "node ./node_modules/cucumber/bin/cucumber-js"
   }
 }
