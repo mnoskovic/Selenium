@@ -17,7 +17,7 @@ function CustomWorld() {
 
     this.driver = new webdriver
         .Builder()
-        .usingServer('http://' + config.server + '/wd/hub')
+        .usingServer(config.server)
         .withCapabilities(capabilities)
         .build();
 }
